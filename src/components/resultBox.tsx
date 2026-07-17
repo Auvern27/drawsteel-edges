@@ -11,59 +11,69 @@ function ResultBox({
 }) {
   return (
     <Box
-      bg="var(--mantine-color-blue-2)"
-      p={10}
-      bdrs={10}
-      mt={20}
-      ml={20}
-      mb={20}
-      mr={20}
+      bg="var(--mantine-color-steel-8)"
+      p="lg"
       style={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        width: "80%",
-        justifySelf: "center",
+        height: "100%",
         minHeight: 0,
+        border: "1px solid var(--mantine-color-steel-6)",
+        clipPath:
+          "polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)",
       }}
     >
       <Text
-        // bg="var(--mantine-color-gray-4)"
-        size="lg"
-        fw={700}
-        style={{ textAlign: "center" }}
+        size="sm"
+        fw={600}
+        tt="uppercase"
+        c="steel.1"
+        ta="center"
+        style={{ letterSpacing: "0.05em" }}
       >
         {title}
       </Text>
       <Text
-        // bg="var(--mantine-color-gray-5)"
         fs="italic"
-        c="dimmed"
+        c="steel.4"
+        fz="sm"
         style={{
           textAlign: "center",
           display: "flex",
-          flexDirection: "column",
           flexGrow: 1,
           minHeight: 0,
           width: "90%",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         {description}
       </Text>
       <Box
-        bg="var(--mantine-color-white)"
-        bdrs={10}
-        mt={20}
-        mb={20}
+        bg="var(--mantine-color-steel-9)"
+        mt="md"
+        mb={4}
         style={{
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
           width: 100,
           height: 100,
-          alignItems: "center",
+          border: "1px solid var(--mantine-color-ember-6)",
+          clipPath:
+            "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
         }}
       >
-        <Text style={{ fontSize: 28 }}>{value.toFixed(2)}</Text>
+        <Text
+          ff="monospace"
+          fw={600}
+          c="ember.4"
+          style={{ fontSize: 26, fontVariantNumeric: "tabular-nums" }}
+        >
+          {value >= 0 ? "+" : ""}
+          {value.toFixed(2)}
+        </Text>
       </Box>
     </Box>
   );
