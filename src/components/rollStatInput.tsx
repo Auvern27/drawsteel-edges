@@ -42,9 +42,6 @@ export function RollStatInput({
           justifyContent: "center",
           flexGrow: 1,
         },
-        // wrapper: {
-        //   width: 80,
-        // },
         input: {
           width: 80,
           height: 80,

@@ -85,7 +85,7 @@ function App() {
           <h2>Expected Damage Increase</h2>
         </Center>
         <SimpleGrid
-          bg="var(--mantine-color-blue-2)"
+          // bg="var(--mantine-color-blue-2)"
           cols={3}
           mx="auto"
           spacing="md"
@@ -97,17 +97,17 @@ function App() {
         >
           <ResultBox
             title="Edge"
-            description="Expected damage increase from an edge"
+            description="Damage increase from getting an edge"
             value={edgeExpectedDamageIncrease}
           />
           <ResultBox
             title="Double Edge"
-            description="Expected damage increase from a double edge"
+            description="Damage increase from getting a double edge"
             value={doubleEdgeExpectedDamageIncrease}
           />
           <ResultBox
             title="Edge to Double Edge"
-            description="Expected damage increase from converting an edge to a double edge"
+            description="Damage increase from getting an edge when you already have one"
             value={edgeToDoubleEdgeExpectedDamageIncrease}
           />
         </SimpleGrid>

@@ -11,7 +11,7 @@ function ResultBox({
 }) {
   return (
     <Box
-      bg="var(--mantine-color-gray-3)"
+      bg="var(--mantine-color-blue-2)"
       p={10}
       bdrs={10}
       mt={20}
@@ -28,7 +28,7 @@ function ResultBox({
       }}
     >
       <Text
-        bg="var(--mantine-color-gray-4)"
+        // bg="var(--mantine-color-gray-4)"
         size="lg"
         fw={700}
         style={{ textAlign: "center" }}
@@ -36,18 +36,22 @@ function ResultBox({
         {title}
       </Text>
       <Text
-        bg="var(--mantine-color-gray-5)"
+        // bg="var(--mantine-color-gray-5)"
+        fs="italic"
+        c="dimmed"
         style={{
-          textAlign: "justify",
+          textAlign: "center",
           display: "flex",
+          flexDirection: "column",
           flexGrow: 1,
           minHeight: 0,
+          width: "90%",
         }}
       >
         {description}
       </Text>
       <Box
-        bg="var(--mantine-color-green-3)"
+        bg="var(--mantine-color-white)"
         bdrs={10}
         mt={20}
         mb={20}
