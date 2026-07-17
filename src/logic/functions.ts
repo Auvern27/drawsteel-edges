@@ -29,7 +29,7 @@ console.log(tier2LowerThreshold);
 console.log(tier3LowerThreshold);
 console.log(roll2D10ProbDist);
 
-export function edgeExpectedDamageIncrease(
+export function computeEdgeExpectedDamageIncrease(
   rollBonus: number,
   diffT1T2: number,
   diffT2T3: number,
@@ -47,7 +47,7 @@ export function edgeExpectedDamageIncrease(
   return expectedDamageIncrease;
 }
 
-export function doubleEdgeExpectedDamageIncrease(
+export function computeDoubleEdgeExpectedDamageIncrease(
   rollBonus: number,
   diffT1T2: number,
   diffT2T3: number,
@@ -78,13 +78,13 @@ export function doubleEdgeExpectedDamageIncrease(
   return expected_damage_increase;
 }
 
-export function edgeToDoubleEdgeExpectedDamageIncrase(
+export function computeEdgeToDoubleEdgeExpectedDamageIncrease(
   rollBonus: number,
   diffT1T2: number,
   diffT2T3: number,
 ): number {
   return (
-    doubleEdgeExpectedDamageIncrease(rollBonus, diffT1T2, diffT2T3) -
-    edgeExpectedDamageIncrease(rollBonus, diffT1T2, diffT2T3)
+    computeDoubleEdgeExpectedDamageIncrease(rollBonus, diffT1T2, diffT2T3) -
+    computeEdgeExpectedDamageIncrease(rollBonus, diffT1T2, diffT2T3)
   );
 }
