@@ -1,122 +1,59 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import {NumberInput} from "@mantine/core";
+import { edgeExpectedDamageIncrease as computeEdgeExpectedDamageIncrease, doubleEdgeExpectedDamageIncrease as computeDoubleEdgeExpectedDamageIncrease, edgeToDoubleEdgeExpectedDamageIncrase as computeEdgeToDoubleEdgeExpectedDamageIncrease } from './logic/functions.ts';
 
-function App() {
-  const [count, setCount] = useState(0)
+function App(){
+
+  const [rollBonus, setRollBonus] = useState<number>(2);
+  const handleRollBonusChange = (value: string | number) => {
+    setRollBonus(typeof value === 'number' ? value : parseInt(value) || 0);
+  }
+  const [diffT1T2, setDiffT1T2] = useState<number>(2);
+  const handleDiffT1T2Change = (value: string | number) => {
+    setDiffT1T2(typeof value === 'number' ? value : parseInt(value) || 0);
+  }
+  const [diffT2T3, setDiffT2T3] = useState<number>(2);
+  const handleDiffT2T3Change = (value: string | number) => {
+    setDiffT2T3(typeof value === 'number' ? value : parseInt(value) || 0);
+  }
+
+  // Results
+  const edgeExpectedDamageIncrease = computeEdgeExpectedDamageIncrease(rollBonus, diffT1T2, diffT2T3);
+  const doubleEdgeExpectedDamageIncrease = computeDoubleEdgeExpectedDamageIncrease(rollBonus, diffT1T2, diffT2T3);
+  const edgeToDoubleEdgeExpectedDamageIncrease = computeEdgeToDoubleEdgeExpectedDamageIncrease(rollBonus, diffT1T2, diffT2T3);
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+        <section >
+            <h1>Draw Steel Edges</h1>
+        </section>
+        <NumberInput
+            label="Roll Bonus"
+            description="Usually your highest characteristic"
+            placeholder="2"
+            value={rollBonus}
+            onChange={handleRollBonusChange}
+        />
+        <NumberInput
+            label="T1 to T2 difference"
+            description="The difference in damage between the Tier 1 and Tier 2 results of the ability"
+            placeholder="2"
+            value={diffT1T2}
+            onChange={handleDiffT1T2Change}
+        />
+        <NumberInput
+            label="T2 to T3 difference"
+            description="The difference in damage between the Tier 2 and Tier 3 results of the ability"
+            placeholder="2"
+            value={diffT2T3}
+            onChange={handleDiffT2T3Change}
+        />
+        <p>Edge Expected Damage Increase: {edgeExpectedDamageIncrease.toFixed(2)}</p>
+        <p>Double Edge Expected Damage Increase: {doubleEdgeExpectedDamageIncrease.toFixed(2)}</p>
+        <p>Edge to Double Edge Expected Damage Increase: {edgeToDoubleEdgeExpectedDamageIncrease.toFixed(2)}</p>
     </>
   )
 }
+
 
 export default App
