@@ -65,7 +65,7 @@ export function computeDoubleEdgeExpectedDamageIncrease(
   // Probability of rolling Tier 2 (And increasing to Tier 3)
   let probT2ToT3 = 0;
   for (
-    let result = tier2LowerThreshold;
+    let result = tier2LowerThreshold - rollBonus - 1;
     result <= tier3LowerThreshold - rollBonus - 1;
     result++
   ) {
