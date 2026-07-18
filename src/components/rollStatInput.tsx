@@ -27,8 +27,6 @@ export function RollStatInput({
       p="lg"
       style={{
         border: "1px solid var(--mantine-color-steel-6)",
-        clipPath:
-          "polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)",
       }}
       styles={{
         root: {
@@ -56,6 +54,7 @@ export function RollStatInput({
           minHeight: 0,
           marginTop: 6,
           marginBottom: 12,
+          fontSize: "var(--mantine-font-size-sm)",
         },
         input: {
           width: 88,

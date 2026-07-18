@@ -20,8 +20,6 @@ function ResultBox({
         height: "100%",
         minHeight: 0,
         border: "1px solid var(--mantine-color-steel-6)",
-        clipPath:
-          "polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%)",
       }}
     >
       <Text
@@ -61,8 +59,6 @@ function ResultBox({
           width: 100,
           height: 100,
           border: "1px solid var(--mantine-color-ember-6)",
-          clipPath:
-            "polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%)",
         }}
       >
         <Text

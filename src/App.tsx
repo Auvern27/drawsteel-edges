@@ -67,15 +67,6 @@ function App() {
     >
       <Container size="md" px={{ base: 16, sm: 32 }}>
         <Stack gap={4} align="center" mb={{ base: 32, sm: 48 }}>
-          <Text
-            tt="uppercase"
-            c="ember.4"
-            fw={600}
-            fz="xs"
-            style={{ letterSpacing: "0.2em" }}
-          >
-            Combat Math
-          </Text>
           <Title
             order={1}
             ta="center"
@@ -84,14 +75,15 @@ function App() {
             tt="uppercase"
             style={{ letterSpacing: "0.03em" }}
           >
-            Draw Steel Edges
+            Draw Steel Edge Calculator
           </Title>
           <Box maw={280} w="100%" mt={8}>
             <EdgeDivider />
           </Box>
-          <Text c="steel.3" ta="center" maw={480} mt={12} fz="sm">
+          <Text c="steel.3" ta="center" maw={550} mt={12} fz="sm">
             Estimate the expected damage swing from Edges and Double Edges,
-            based on your roll bonus and tier breakpoints.
+            based on your roll bonus and the damage differences between the
+            Tiers of your ability.
           </Text>
         </Stack>
 
@@ -136,7 +128,7 @@ function App() {
               />
               <ResultBox
                 title="Edge → Double Edge"
-                description="Damage increase from converting an edge to a double edge"
+                description="Damage increase from getting an edge when you already had one"
                 value={edgeToDoubleEdgeExpectedDamageIncrease}
               />
             </SimpleGrid>
